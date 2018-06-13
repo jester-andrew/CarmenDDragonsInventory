@@ -6,8 +6,8 @@ public class InventoryCreature {
     private String name;
     private String color;
     private String item;
-    private float costToProduce;
-    private float listPrice;
+    private double costToProduce;
+    private double listPrice;
     private int stock;
     private String imgFilePath;
 
