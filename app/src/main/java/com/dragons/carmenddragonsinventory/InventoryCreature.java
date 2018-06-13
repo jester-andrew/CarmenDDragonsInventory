@@ -6,8 +6,8 @@ public class InventoryCreature {
     private String name;
     private String color;
     private String item;
-    private float costToProduce;
-    private float listPrice;
+    private double costToProduce;
+    private double listPrice;
     private int stock;
     private String imgFilePath;
 
@@ -40,11 +40,11 @@ public class InventoryCreature {
         return imgFilePath;
     }
 
-    public float getCostToProduce() {
+    public double getCostToProduce() {
         return costToProduce;
     }
 
-    public float getListPrice() {
+    public double getListPrice() {
         return listPrice;
     }
 
