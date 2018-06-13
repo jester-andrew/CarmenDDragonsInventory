@@ -1,3 +1,5 @@
+package com.dragons.carmenddragonsinventory;
+
 public class InventoryCreature {
 
     //member variables
