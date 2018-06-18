@@ -1,0 +1,107 @@
+{
+  "project_info": {
+    "project_number": "341655163363",
+    "firebase_url": "https://carmenddragons.firebaseio.com",
+    "project_id": "carmenddragons",
+    "storage_bucket": "carmenddragons.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:341655163363:android:4e7d8d6a43c8c3b5",
+        "android_client_info": {
+          "package_name": "com.dragons.carmenddragonsinventory"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "341655163363-90vqi9blao42ku45v5l4rea7tv2hmuvj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dragons.carmenddragonsinventory",
+            "certificate_hash": "1eab8297372d00398def4d90380be694e06183f9"
+          }
+        },
+        {
+          "client_id": "341655163363-d4hlssska99el3th8f16sc4emfncge8f.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "341655163363-d4hlssska99el3th8f16sc4emfncge8f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVSyDDe9cbw8XrSoJpsIJjGyycAtHdIdk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "341655163363-d4hlssska99el3th8f16sc4emfncge8f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:341655163363:android:94b89233001312f1",
+        "android_client_info": {
+          "package_name": "com.example.justen.carmendeedragonsinventory"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "341655163363-81l3uic5i4428fs0gc8pt1gmioieukka.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.justen.carmendeedragonsinventory",
+            "certificate_hash": "1eab8297372d00398def4d90380be694e06183f9"
+          }
+        },
+        {
+          "client_id": "341655163363-d4hlssska99el3th8f16sc4emfncge8f.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "341655163363-d4hlssska99el3th8f16sc4emfncge8f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVSyDDe9cbw8XrSoJpsIJjGyycAtHdIdk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "341655163363-d4hlssska99el3th8f16sc4emfncge8f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
