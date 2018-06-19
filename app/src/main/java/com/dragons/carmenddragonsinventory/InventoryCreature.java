@@ -12,8 +12,8 @@ public class InventoryCreature {
     private String imgFilePath;
 
     //constructor
-    public InventoryCreature(String name, String color, String item, float costToProduce,
-                             float listPrice, int stock, String imgFilePath){
+    public InventoryCreature(String name, String color, String item, double costToProduce,
+                             double listPrice, int stock, String imgFilePath){
         this.name = name;
         this.color = color;
         this.item = item;
@@ -69,11 +69,11 @@ public class InventoryCreature {
         this.imgFilePath = imgFilePath;
     }
 
-    public void setCostToProduce(float costToProduce) {
+    public void setCostToProduce(double costToProduce) {
         this.costToProduce = costToProduce;
     }
 
-    public void setListPrice(float listPrice) {
+    public void setListPrice(double listPrice) {
         this.listPrice = listPrice;
     }
 
