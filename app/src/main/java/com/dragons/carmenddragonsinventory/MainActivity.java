@@ -19,6 +19,21 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // write an item to the database option 1 using an initialized object
+        InventoryCreature a = new InventoryCreature("shark", "blue", "walrus", 2.00, 2.00, 10, "test");
+        insertInventoryCreature insert = new insertInventoryCreature(a, "fantasy-creature");
+        insert.insertInventoryCreature();
+
+        // write an item to the database option 2 using an unitialized object
+        InventoryCreature b = new InventoryCreature("cow", "chocolate", "bow-staff", 3.12, 6.12, 12, "test");
+        insertInventoryCreature insertTwo = new insertInventoryCreature();
+        insertTwo.insertInventoryCreature(b, "woodland-creature");
+
+        // write an item to the database option 2 using an unitialized object
+        InventoryCreature c = new InventoryCreature("cat", "purple", "bow-staff", 3.12, 6.12, 12, "test");
+        insertInventoryCreature insertThree = new insertInventoryCreature();
+        insertTwo.insertInventoryCreature(b, "sea-creature");
+
 
 
 
