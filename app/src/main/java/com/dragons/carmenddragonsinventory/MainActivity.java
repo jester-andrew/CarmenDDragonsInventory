@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         // write an item to the database option 2 using an unitialized object
         InventoryCreature c = new InventoryCreature("cat", "purple", "bow-staff", 3.12, 6.12, 12, "test");
         insertInventoryCreature insertThree = new insertInventoryCreature();
-        insertTwo.insertInventoryCreature(b, "sea-creature");
+        insertThree.insertInventoryCreature(c, "sea-creature");
 
 
 
