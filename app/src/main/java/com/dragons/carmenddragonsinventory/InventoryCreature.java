@@ -1,5 +1,7 @@
 package com.dragons.carmenddragonsinventory;
 
+import android.util.Log;
+
 public class InventoryCreature {
 
     //member variables
@@ -22,6 +24,9 @@ public class InventoryCreature {
         this.listPrice = listPrice;
         this.stock = stock;
         this.imgFilePath = imgFilePath;
+
+        Log.i(TAG, "InventoryCreature created with " + name + " " + color + " "+ item + " "+
+                costToProduce + " "+ listPrice + " "+ stock + " "+ imgFilePath);
     }
 
     //getters
