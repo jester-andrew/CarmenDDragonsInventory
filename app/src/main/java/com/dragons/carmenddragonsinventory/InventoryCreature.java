@@ -10,6 +10,7 @@ public class InventoryCreature {
     private double listPrice;
     private Integer stock;
     private String imgFilePath;
+    private static String  TAG = "Inventory Creature Class";
 
     //constructor
     public InventoryCreature(String name, String color, String item, double costToProduce,
