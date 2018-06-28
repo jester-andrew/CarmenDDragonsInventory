@@ -1,22 +1,33 @@
 package com.dragons.carmenddragonsinventory;
 
 import android.content.Context;
+import android.graphics.Rect;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class Add_Item extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
-    private Spinner spinner;
-    private static final String[]paths = {"Fantasy-Creature", "Sea-Creature", "Woodland-Creature"};
+
     private String location;
     private static String TAG = "Add_Item Activity";
+
+    TextView _image;
+    TextView itemname;
+    TextView item_Color;
+    TextView holding_Item;
+    TextView _ctp;
+    TextView listingprice;
+    TextView _stock;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +45,15 @@ public class Add_Item extends AppCompatActivity implements AdapterView.OnItemSel
         dropdown.setAdapter(adapter);
 
         dropdown.setOnItemSelectedListener(this);
+
+        _image = findViewById(R.id.imageName);
+        itemname = findViewById(R.id.item_Name);
+        item_Color = findViewById(R.id.item_color);
+        holding_Item =findViewById(R.id.Item_Item);
+        _ctp = findViewById(R.id.cost_to_Produce);
+        listingprice = findViewById(R.id.list_Price);
+        _stock = findViewById(R.id.stock);
+
 
     }
 
@@ -78,6 +98,18 @@ public class Add_Item extends AppCompatActivity implements AdapterView.OnItemSel
             Toast toast = Toast.makeText(context, text, duration);
             toast.show();
         }
+
+        try{
+            _image.setText("");
+            itemname.setText("");
+            item_Color.setText("");
+            holding_Item.setText("");
+            _ctp.setText("");
+            listingprice.setText("");
+            _stock.setText("");
+        } catch(Exception e){
+            Log.e(TAG, "failed to delete all fields");
+        }
     }
 
     @Override
@@ -115,4 +147,6 @@ public class Add_Item extends AppCompatActivity implements AdapterView.OnItemSel
         toast.show();
 
     }
+
+
 }
