@@ -75,9 +75,11 @@ public class Main2Activity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
-            // Handle the camera action
-
+            // By clicking on the 1st button
+            Intent Edit = new Intent(this, Add_Item.class);
+            startActivity(Edit);
         } else if (id == R.id.nav_gallery) {
+            // By clicking on the 2nd button
             Intent Displayinventory = new Intent(this, InventoryDisplayActivity.class);
             startActivity(Displayinventory);
         } else if (id == R.id.nav_share) {

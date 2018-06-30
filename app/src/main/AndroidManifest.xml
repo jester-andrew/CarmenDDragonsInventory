@@ -29,7 +29,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".InventoryDisplayActivity"></activity>
+        <activity android:name=".InventoryDisplayActivity" />
+        <activity android:name=".Add_Item"></activity>
     </application>
 
 </manifest>
