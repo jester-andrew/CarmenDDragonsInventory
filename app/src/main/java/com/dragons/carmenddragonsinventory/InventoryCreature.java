@@ -8,10 +8,14 @@ public class InventoryCreature {
     private String item;
     private double costToProduce;
     private double listPrice;
-    private int stock;
+    private Integer stock;
     private String imgFilePath;
 
     //constructor
+    public InventoryCreature(){
+
+    }
+
     public InventoryCreature(String name, String color, String item, double costToProduce,
                              double listPrice, int stock, String imgFilePath){
         this.name = name;
@@ -40,15 +44,15 @@ public class InventoryCreature {
         return imgFilePath;
     }
 
-    public double getCostToProduce() {
+    public Double getCostToProduce() {
         return costToProduce;
     }
 
-    public double getListPrice() {
+    public Double getListPrice() {
         return listPrice;
     }
 
-    public int getStock() {
+    public Integer getStock() {
         return stock;
     }
 
