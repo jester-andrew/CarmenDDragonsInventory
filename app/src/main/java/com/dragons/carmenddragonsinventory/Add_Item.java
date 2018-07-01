@@ -52,7 +52,7 @@ public class Add_Item extends AppCompatActivity implements AdapterView.OnItemSel
         holding_Item =findViewById(R.id.Item_Item);
         _ctp = findViewById(R.id.cost_to_Produce);
         listingprice = findViewById(R.id.list_Price);
-        _stock = findViewById(R.id.stock);
+        _stock = findViewById(R.id.inStock);
 
 
     }

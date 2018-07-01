@@ -39,9 +39,9 @@ class CreatureHolder extends RecyclerView.ViewHolder {
     private final TextView nameField;
     private final TextView itemHeld;
     private final TextView color;
-    private final EditText costToProduce;
-    private final EditText inStock;
-    private final EditText listPrice;
+    private final TextView costToProduce;
+    private final TextView inStock;
+    private final TextView listPrice;
     private final ImageView photo;
     public CreatureHolder(View itemView) {
         super(itemView);

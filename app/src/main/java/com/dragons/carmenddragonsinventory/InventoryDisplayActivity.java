@@ -2,10 +2,11 @@ package com.dragons.carmenddragonsinventory;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.constraint.solver.widgets.Snapshot;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
+
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
@@ -13,6 +14,8 @@ import com.firebase.ui.database.*;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
+
+
 
 public class InventoryDisplayActivity extends AppCompatActivity {
 
@@ -45,15 +48,17 @@ public class InventoryDisplayActivity extends AppCompatActivity {
                       @NonNull
                       @Override
                       public InventoryCreature parseSnapshot(@NonNull DataSnapshot snapshot) {
-                          InventoryCreature ic = new InventoryCreature();
-                          ic.setColor(snapshot.child("color").getValue().toString());
-                          //ic.setCostToProduce((Long)(snapshot.child("costToProduce").getValue()));
-                          ic.setItem(snapshot.child("item").getValue().toString());
-                          //ic.setListPrice((Long)(snapshot.child("listPrice").getValue()));
-                          ic.setName(snapshot.child("name").getValue().toString());
-                          //ic.setStock((Integer) snapshot.child("stock").getValue());
-                          return ic;
-                      }
+
+
+                              InventoryCreature ic = new InventoryCreature();
+                              ic.setColor(snapshot.child("color").getValue().toString());
+                              ic.setName(snapshot.child("name").getValue().toString());
+                              ic.setItem(snapshot.child("item").getValue().toString());
+                              ic.setListPrice(snapshot.child("listPrice").getValue(Double.class));
+                              ic.setCostToProduce(snapshot.child("costToProduce").getValue(Double.class));
+                              ic.setStock(snapshot.child("stock").getValue(Integer.class));
+                              return ic;
+                          }
                   })
                   .setLifecycleOwner(this)
                   .build();
@@ -72,9 +77,9 @@ public class InventoryDisplayActivity extends AppCompatActivity {
            @Override
            protected void onBindViewHolder(@NonNull CreatureHolder holder, int position, @NonNull InventoryCreature model) {
                 holder.getItemHeld().setText(model.getItem());
-                //holder.getInStock().setText(model.getStock().toString());
-                //holder.getCostToProduce().append(model.getCostToProduce().toString());
-                //holder.getListPrice().append(model.getListPrice().toString());
+                holder.getInStock().setText(String.valueOf(model.getStock()));
+                holder.getCostToProduce().setText(String.valueOf(model.getCostToProduce()));
+                holder.getListPrice().setText(String.valueOf(model.getListPrice()));
                 holder.getColor().setText(model.getColor());
                 holder.getNameField().setText(model.getName());
 
