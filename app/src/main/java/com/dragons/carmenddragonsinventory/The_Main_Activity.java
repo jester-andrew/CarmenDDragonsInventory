@@ -78,14 +78,25 @@ public class The_Main_Activity extends AppCompatActivity
             Intent Edit = new Intent(this, Add_Item.class);
             startActivity(Edit);
         } else if (id == R.id.Update) {
+            //The second Button
 
-        }
-        else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.nav_gallery) {
+            //The Third Button
             Intent Displayinventory = new Intent(this, InventoryDisplayActivity.class);
             startActivity(Displayinventory);
-        } else if (id == R.id.nav_share) {
+
+        } else if (id == R.id.Inv2) {
+            //The fourth button
+
+        } else if (id == R.id.Inv3) {
+            //THe fifth button
+
+        }
+        else if (id == R.id.nav_share) {
+            //THe 6th button
 
         } else if (id == R.id.nav_send) {
+            //The 7th button
 
         }
 

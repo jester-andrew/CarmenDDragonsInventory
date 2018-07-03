@@ -15,7 +15,15 @@
         <item
             android:id="@+id/nav_gallery"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="Full Inventory List" />
+            android:title="Sea Creatures" />
+        <item
+            android:id="@+id/Inv2"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Woodland Creatures" />
+        <item
+            android:id="@+id/Inv3"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Fantasy Creatures" />
     </group>
 
     <item android:title="Reports">
