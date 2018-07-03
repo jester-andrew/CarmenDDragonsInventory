@@ -2,6 +2,9 @@ package com.dragons.carmenddragonsinventory;
 
 import android.util.Log;
 
+/**
+* The InventoryCreature class creates a new instance of a creature.
+*/
 public class InventoryCreature {
 
     //member variables
@@ -15,10 +18,21 @@ public class InventoryCreature {
     private static String  TAG = "Inventory Creature Class";
 
     //constructor
+
     public InventoryCreature(){
 
     }
 
+    /**
+    * The non-default constructor takes the parameters assosiated with an InventoryCreature.
+    * @param name
+    * @param color
+    * @param item
+    * @param costToProduce
+    * @param listPrice
+    * @param stock
+    * @param imgFilePath
+    */
     public InventoryCreature(String name, String color, String item, double costToProduce,
                              double listPrice, Integer stock, String imgFilePath){
         this.name = name;
@@ -75,6 +89,10 @@ public class InventoryCreature {
         this.item = item;
     }
 
+    /**
+    * the filepath to where the image will be stored on the device
+    * @param imgFilePath
+    */
     public void setImgFilePath(String imgFilePath) {
         this.imgFilePath = imgFilePath;
     }
