@@ -3,7 +3,6 @@ package com.dragons.carmenddragonsinventory;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -12,14 +11,14 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class Main2Activity extends AppCompatActivity
+public class The_Main_Activity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.the_main_activity);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -78,8 +77,10 @@ public class Main2Activity extends AppCompatActivity
             // By clicking on the 1st button
             Intent Edit = new Intent(this, Add_Item.class);
             startActivity(Edit);
-        } else if (id == R.id.nav_gallery) {
-            // By clicking on the 2nd button
+        } else if (id == R.id.Update) {
+
+        }
+        else if (id == R.id.nav_gallery) {
             Intent Displayinventory = new Intent(this, InventoryDisplayActivity.class);
             startActivity(Displayinventory);
         } else if (id == R.id.nav_share) {

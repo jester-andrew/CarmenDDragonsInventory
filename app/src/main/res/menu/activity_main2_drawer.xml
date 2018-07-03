@@ -7,7 +7,11 @@
         <item
             android:id="@+id/nav_camera"
             android:icon="@drawable/ic_menu_camera"
-            android:title="Edit" />
+            android:title="Add Inventory" />
+        <item
+            android:id="@+id/Update"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Edit Inventory Item" />
         <item
             android:id="@+id/nav_gallery"
             android:icon="@drawable/ic_menu_gallery"
