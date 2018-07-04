@@ -15,7 +15,7 @@
         <item
             android:id="@+id/nav_gallery"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="Sea Creatures" />
+            android:title="Fantasy Creatures" />
         <item
             android:id="@+id/Inv2"
             android:icon="@drawable/ic_menu_gallery"
@@ -23,7 +23,7 @@
         <item
             android:id="@+id/Inv3"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="Fantasy Creatures" />
+            android:title="Sea Creatures" />
     </group>
 
     <item android:title="Reports">
