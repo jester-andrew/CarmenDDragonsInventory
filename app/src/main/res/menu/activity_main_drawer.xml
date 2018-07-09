@@ -6,7 +6,7 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/library_plus"
             android:title="Add Inventory" />
         <item
             android:id="@+id/Update"
@@ -30,7 +30,7 @@
         <menu>
             <item
                 android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
+                android:icon="@drawable/calculator"
                 android:title="Sales Summary" />
             <item
                 android:id="@+id/nav_send"
