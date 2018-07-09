@@ -10,15 +10,27 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.RotateAnimation;
+import android.widget.ImageView;
+
+import java.util.Random;
 
 public class The_Main_Activity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
+    private ImageView Circle;
+    private Random random = new Random();
+    private int lastDir;
+    private boolean spinning;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.the_main_activity);
+        {
+            Circle = findViewById(R.id.Circle);
+        }
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -34,7 +46,36 @@ public class The_Main_Activity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
     }
+public void spin(View v){
+        if (!spinning) {
+            int newDir = random.nextInt(1800);
+            float pivotx = Circle.getWidth() / 2;
+            float pivotY = Circle.getHeight() / 2;
 
+            Animation rotate = new RotateAnimation(lastDir, newDir, pivotY, pivotx);
+            rotate.setDuration(2500);
+            rotate.setFillAfter(true);
+            rotate.setAnimationListener(new Animation.AnimationListener() {
+                @Override
+                public void onAnimationStart(Animation animation) {
+                    spinning = true;
+                }
+
+                @Override
+                public void onAnimationEnd(Animation animation) {
+                    spinning = false;
+                }
+
+                @Override
+                public void onAnimationRepeat(Animation animation) {
+
+                }
+            });
+
+            lastDir = newDir;
+            Circle.startAnimation(rotate);
+        }
+}
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
