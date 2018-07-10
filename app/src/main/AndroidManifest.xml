@@ -23,7 +23,9 @@
         </activity>
         <activity android:name=".InventoryDisplayActivity" />
         <activity android:name=".Add_Item" />
-        <activity android:name=".Sales_History"></activity>
+        <activity android:name=".Sales_History" />
+        <activity android:name=".Income_Statement" />
+        <activity android:name=".Need_More_Inventory"></activity>
     </application>
 
 </manifest>
