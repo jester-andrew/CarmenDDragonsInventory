@@ -6,11 +6,11 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/library_plus"
             android:title="Add Inventory" />
         <item
             android:id="@+id/Update"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/pencil"
             android:title="Edit Inventory Item" />
         <item
             android:id="@+id/Inv1"
@@ -18,11 +18,11 @@
             android:title="Fantasy Creatures" />
         <item
             android:id="@+id/Inv2"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/pine_tree"
             android:title="Woodland Creatures" />
         <item
             android:id="@+id/Inv3"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/fish"
             android:title="Sea Creatures" />
     </group>
 
@@ -30,7 +30,7 @@
         <menu>
             <item
                 android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
+                android:icon="@drawable/calculator"
                 android:title="Sales Summary" />
             <item
                 android:id="@+id/nav_send"
