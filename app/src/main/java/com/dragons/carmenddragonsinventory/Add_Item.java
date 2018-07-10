@@ -247,11 +247,7 @@ public class Add_Item extends AppCompatActivity implements AdapterView.OnItemSel
                                 public void onSuccess(Uri uri) {
 
                                     Toast.makeText(Add_Item.this, "Upload Successful!", Toast.LENGTH_LONG).show();
-                                    Upload upload = new Upload(editTextFileName.getText().toString().trim(),
-                                            uri.toString());
                                     url = uri.toString();
-                                    String uploadId = databaseReference.push().getKey();
-                                    databaseReference.child(uploadId).setValue(upload);
 
                                 }
                             });
