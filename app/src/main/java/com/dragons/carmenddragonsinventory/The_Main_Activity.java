@@ -143,8 +143,8 @@ public void spin(View v){
         }
         else if (id == R.id.nav_share) {
             //Sales History button
-            Intent displayInventory = new Intent(this, Sales_History.class);
-
+            Intent Sales_History = new Intent(this, Sales_History.class);
+            startActivity(Sales_History);
         } else if (id == R.id.nav_send) {
             //The 7th button
 
