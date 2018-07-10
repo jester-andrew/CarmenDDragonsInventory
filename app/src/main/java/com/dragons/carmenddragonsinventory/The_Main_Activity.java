@@ -126,7 +126,6 @@ public void spin(View v){
 
         } else if (id == R.id.Inv1) {
             //Fantasy creature button
-
             Intent displayInventory = new Intent(this, InventoryDisplayActivity.class);
             displayInventory.putExtra("CATEGORY","fantasy");
             startActivity(displayInventory);
@@ -143,7 +142,8 @@ public void spin(View v){
             startActivity(displayInventory);
         }
         else if (id == R.id.nav_share) {
-            //THe 6th button
+            //Sales History button
+            Intent displayInventory = new Intent(this, Sales_History.class);
 
         } else if (id == R.id.nav_send) {
             //The 7th button
