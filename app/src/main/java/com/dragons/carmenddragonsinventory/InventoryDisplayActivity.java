@@ -1,5 +1,6 @@
 package com.dragons.carmenddragonsinventory;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -12,7 +13,7 @@ import com.firebase.ui.database.*;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
-
+import com.squareup.picasso.Picasso;
 
 
 public class InventoryDisplayActivity extends AppCompatActivity {
@@ -20,10 +21,12 @@ public class InventoryDisplayActivity extends AppCompatActivity {
      * This class provides the interface to see the inventory
      */
     private RecyclerView.LayoutManager layoutManager;
-    protected Query inventoryQuery = FirebaseDatabase.getInstance().getReference("inventory").child("fantasy-creature").orderByValue();
+    protected Query inventoryQuery;
     private RecyclerView recyclerView;
     private String category;
     private static String TAG =  " Inventory Display Activity";
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -91,6 +94,12 @@ public class InventoryDisplayActivity extends AppCompatActivity {
                 holder.getListPrice().setText(String.valueOf(model.getListPrice()));
                 holder.getColor().setText(model.getColor());
                 holder.getNameField().setText(model.getName());
+                Picasso.get()
+                        .load(model.getImgFilePath())
+                        .fit()
+                        .centerCrop()
+                        .into(holder.getPhoto());
+
 
            }
        };
