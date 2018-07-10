@@ -11,6 +11,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+
 public class The_Main_Activity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -80,17 +83,23 @@ public class The_Main_Activity extends AppCompatActivity
         } else if (id == R.id.Update) {
             //The second Button
 
-        } else if (id == R.id.nav_gallery) {
-            //The Third Button
-            Intent Displayinventory = new Intent(this, InventoryDisplayActivity.class);
-            startActivity(Displayinventory);
+        } else if (id == R.id.Inv1) {
+            //Fantasy creature button
+
+            Intent displayInventory = new Intent(this, InventoryDisplayActivity.class);
+            displayInventory.putExtra("CATEGORY","fantasy");
+            startActivity(displayInventory);
 
         } else if (id == R.id.Inv2) {
             //The fourth button
-
+            Intent displayInventory = new Intent(this, InventoryDisplayActivity.class);
+            displayInventory.putExtra("CATEGORY","woodland");
+            startActivity(displayInventory);
         } else if (id == R.id.Inv3) {
             //THe fifth button
-
+            Intent displayInventory = new Intent(this, InventoryDisplayActivity.class);
+            displayInventory.putExtra("CATEGORY","underwater");
+            startActivity(displayInventory);
         }
         else if (id == R.id.nav_share) {
             //THe 6th button

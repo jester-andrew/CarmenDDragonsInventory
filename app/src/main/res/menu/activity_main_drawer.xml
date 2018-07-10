@@ -13,7 +13,7 @@
             android:icon="@drawable/ic_menu_camera"
             android:title="Edit Inventory Item" />
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/Inv1"
             android:icon="@drawable/ic_menu_gallery"
             android:title="Fantasy Creatures" />
         <item

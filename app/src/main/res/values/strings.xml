@@ -7,4 +7,17 @@
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
+    <string name="add_item_text">Add Item</string>
+    <string name="image_name_field">Image name</string>
+    <string name="cost_to_produce_field">Cost to Produce</string>
+    <string name="in_stock_field"># in Stock</string>
+    <string name="list_price_field">List Price</string>
+    <string name="item_color_field">Item color</string>
+    <string name="item_they_have_field">Item they have</string>
+    <string name="item_name_field">Item name</string>
+    <string name="number_in_stock_display_field">Number In Stock</string>
+    <string name="name_display_field">name</string>
+    <string name="item_image_display_Description">Item Image</string>
+    <string name="carmendee_dragons_title">CarmenDee Dragons</string>
+    <string name="motto_field">Crafting Perfection</string>
 </resources>

@@ -19,22 +19,22 @@ public class InventoryCreature {
 
     //constructor
 
-    public InventoryCreature(){
+    InventoryCreature(){
 
     }
 
     /**
-    * The non-default constructor takes the parameters assosiated with an InventoryCreature.
-    * @param name
-    * @param color
-    * @param item
-    * @param costToProduce
-    * @param listPrice
-    * @param stock
-    * @param imgFilePath
+    * The non-default constructor takes the parameters associated with an InventoryCreature.
+    * @param name name of the item
+    * @param color color variance of item
+    * @param item  the item that is integral to the main item
+    * @param costToProduce cost to create the item
+    * @param listPrice regular sale price.
+    * @param stock how many of the item are in inventory
+    * @param imgFilePath the Firestore location of the item that
     */
-    public InventoryCreature(String name, String color, String item, double costToProduce,
-                             double listPrice, Integer stock, String imgFilePath){
+    InventoryCreature(String name, String color, String item, double costToProduce,
+                      double listPrice, Integer stock, String imgFilePath){
         this.name = name;
         this.color = color;
         this.item = item;
@@ -90,8 +90,8 @@ public class InventoryCreature {
     }
 
     /**
-    * the filepath to where the image will be stored on the device
-    * @param imgFilePath
+    * the filepath to where the image will be stored in the cloud
+    * @param imgFilePath string of filepath....
     */
     public void setImgFilePath(String imgFilePath) {
         this.imgFilePath = imgFilePath;
