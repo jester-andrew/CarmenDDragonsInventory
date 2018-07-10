@@ -1,19 +1,38 @@
 package com.dragons.carmenddragonsinventory;
 
+import android.content.ContentResolver;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Rect;
+import android.net.Uri;
+import android.os.Handler;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.webkit.MimeTypeMap;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.StorageTask;
+import com.google.firebase.storage.UploadTask;
 
 public class Add_Item extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -28,6 +47,19 @@ public class Add_Item extends AppCompatActivity implements AdapterView.OnItemSel
     TextView _ctp;
     TextView listingprice;
     TextView _stock;
+
+    //upload image variables
+    private static final int PICK_IMAGE_REQUEST = 1;
+    private Button buttonChoseImage;
+    private Button buttonUpload;
+    private TextView textViewShowUploads;
+    private EditText editTextFileName;
+    private ImageView imageView;
+    private ProgressBar progressBar;
+    private Uri imageUri;
+    private StorageReference storageReference;
+    private DatabaseReference databaseReference;
+    private StorageTask uploadTask;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +85,63 @@ public class Add_Item extends AppCompatActivity implements AdapterView.OnItemSel
         _ctp = findViewById(R.id.cost_to_Produce);
         listingprice = findViewById(R.id.list_Price);
         _stock = findViewById(R.id.inStock);
+
+        /************************************************************
+         * Initialize upload variables
+         ************************************************************/
+//        buttonChoseImage = findViewById(R.id.button_chose_image);
+//        buttonUpload = findViewById(R.id.button_upload);
+//        textViewShowUploads = findViewById(R.id.text_view_show_uploads);
+//        editTextFileName = findViewById(R.id.edit_text_file_name);
+//        imageView = findViewById(R.id.image_view);
+//        progressBar = findViewById(R.id.progress_bar);
+
+        storageReference = FirebaseStorage.getInstance().getReference("uploads");
+        databaseReference = FirebaseDatabase.getInstance().getReference("uploads");
+
+
+        buttonChoseImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openFileChooser();
+            }
+        });
+        buttonUpload.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(uploadTask != null && uploadTask.isInProgress()){
+                    Toast.makeText(Add_Item.this, "Upload in Progress", Toast.LENGTH_SHORT ).show();
+                }else {
+                   // uploadFile();
+                }
+            }
+        });
+
+        textViewShowUploads.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+    }
+
+    private void openFileChooser(){
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(intent, PICK_IMAGE_REQUEST);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK
+                && data != null && data.getData() != null){
+            imageUri = data.getData();
+
+            imageView.setImageURI(imageUri);
+        }
 
 
     }
@@ -147,6 +236,51 @@ public class Add_Item extends AppCompatActivity implements AdapterView.OnItemSel
         toast.show();
 
     }
+
+    private String getFileExtenstion(Uri uri){
+        ContentResolver cr = getContentResolver();
+        MimeTypeMap mime = MimeTypeMap.getSingleton();
+        return mime.getExtensionFromMimeType(cr.getType(uri));
+    }
+//    private void uploadFile(){
+//        if(imageUri != null){
+//            StorageReference fileReference = storageReference.child(System.currentTimeMillis()
+//                    + "." + getFileExtenstion(imageUri));
+//            uploadTask = fileReference.putFile(imageUri)
+//                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+//                        @Override
+//                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+//                            Handler handler = new Handler();
+//
+//                            handler.postDelayed(new Runnable(){
+//
+//                                @Override
+//                                public void run() {
+//                                    progressBar.setProgress(0);
+//                                }
+//                            }, 500);
+//                            Toast.makeText(Add_Item.this, "Upload Successful!", Toast.LENGTH_LONG).show();
+//                            Upload upload = new Upload(editTextFileName.getText().toString().trim(),
+//                                    taskSnapshot.getDownloadUrl().toString());
+//                            String uploadId = databaseReference.push().getKey();
+//                            databaseReference.child(uploadId).setValue(upload);
+//                        }
+//                    }).addOnFailureListener(new OnFailureListener() {
+//                        @Override
+//                        public void onFailure(@NonNull Exception e) {
+//                            Toast.makeText(Add_Item.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+//                        }
+//                    }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+//                        @Override
+//                        public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
+//                            double progress = 100.0 * taskSnapshot.getBytesTransferred() / taskSnapshot.getTotalByteCount();
+//                            progressBar.setProgress((int) progress);
+//                        }
+//                    });
+//        }else{
+//            Toast.makeText(this, "No file selected", Toast.LENGTH_SHORT).show();
+//        }
+//    }
 
 
 }
