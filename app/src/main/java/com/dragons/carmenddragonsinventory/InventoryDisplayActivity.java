@@ -8,6 +8,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import com.firebase.ui.database.*;
 import com.google.firebase.database.DataSnapshot;
@@ -94,12 +95,18 @@ public class InventoryDisplayActivity extends AppCompatActivity {
                 holder.getListPrice().setText(String.valueOf(model.getListPrice()));
                 holder.getColor().setText(model.getColor());
                 holder.getNameField().setText(model.getName());
+                Log.i(TAG, "onBindViewHolder: "+ model.getImgFilePath());
                 Picasso.get()
                         .load(model.getImgFilePath())
                         .fit()
                         .centerCrop()
                         .into(holder.getPhoto());
-
+                holder.getSale().setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        
+                    }
+                });
 
            }
        };

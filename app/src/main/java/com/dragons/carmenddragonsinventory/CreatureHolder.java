@@ -3,6 +3,7 @@ package com.dragons.carmenddragonsinventory;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -43,6 +44,7 @@ class CreatureHolder extends RecyclerView.ViewHolder {
     private final TextView inStock;
     private final TextView listPrice;
     private final ImageView photo;
+    private final Button sale;
     public CreatureHolder(View itemView) {
         super(itemView);
         nameField = itemView.findViewById(R.id.nametag);
@@ -52,6 +54,11 @@ class CreatureHolder extends RecyclerView.ViewHolder {
         inStock = itemView.findViewById(R.id.inStock);
         listPrice = itemView.findViewById(R.id.listPrice);
         photo = itemView.findViewById(R.id.itemimage);
+        sale = itemView.findViewById(R.id.sale_button);
     }
 
+
+    public Button getSale() {
+        return sale;
+    }
 }

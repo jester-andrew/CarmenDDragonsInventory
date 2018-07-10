@@ -43,7 +43,7 @@
     <ImageView
         android:id="@+id/itemimage"
         android:layout_width="183dp"
-        android:layout_height="127dp"
+        android:layout_height="148dp"
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
@@ -61,7 +61,7 @@
         android:layout_marginTop="16dp"
         android:contentDescription="@string/number_in_stock_display_field"
         android:ems="10"
-        android:inputType="number"
+        android:inputType="none"
         app:layout_constraintStart_toEndOf="@+id/nametag"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -73,7 +73,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:ems="10"
-        android:inputType="number"
+        android:inputType="none"
         app:layout_constraintStart_toEndOf="@+id/Color"
         app:layout_constraintTop_toBottomOf="@+id/CostToProduce" />
 
@@ -85,8 +85,20 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:ems="10"
-        android:inputType="number"
+        android:inputType="none"
         app:layout_constraintStart_toEndOf="@+id/itemtag"
         app:layout_constraintTop_toBottomOf="@+id/inStock" />
+
+    <Button
+        android:id="@+id/sale_button"
+        android:layout_width="wrap_content"
+        android:layout_height="33dp"
+        android:layout_marginLeft="56dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/sale_button"
+        app:layout_constraintStart_toEndOf="@+id/itemimage"
+        app:layout_constraintTop_toBottomOf="@+id/Color"
+        tools:text="Sale" />
 
 </android.support.constraint.ConstraintLayout>
