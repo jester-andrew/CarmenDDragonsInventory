@@ -47,6 +47,7 @@ public class Add_Item extends AppCompatActivity implements AdapterView.OnItemSel
     TextView _ctp;
     TextView listingprice;
     TextView _stock;
+    private String url;
 
     //upload image variables
     private static final int PICK_IMAGE_REQUEST = 1;
@@ -78,7 +79,7 @@ public class Add_Item extends AppCompatActivity implements AdapterView.OnItemSel
 
         dropdown.setOnItemSelectedListener(this);
 
-        _image = findViewById(R.id.imageName);
+
         itemname = findViewById(R.id.item_Name);
         item_Color = findViewById(R.id.item_color);
         holding_Item =findViewById(R.id.Item_Item);
@@ -89,12 +90,10 @@ public class Add_Item extends AppCompatActivity implements AdapterView.OnItemSel
         /************************************************************
          * Initialize upload variables
          ************************************************************/
-//        buttonChoseImage = findViewById(R.id.button_chose_image);
-//        buttonUpload = findViewById(R.id.button_upload);
-//        textViewShowUploads = findViewById(R.id.text_view_show_uploads);
-//        editTextFileName = findViewById(R.id.edit_text_file_name);
-//        imageView = findViewById(R.id.image_view);
-//        progressBar = findViewById(R.id.progress_bar);
+        buttonChoseImage = findViewById(R.id.button_chose_image);
+        buttonUpload = findViewById(R.id.button_upload);
+        imageView = findViewById(R.id.image_view);
+        progressBar = findViewById(R.id.progress_bar);
 
         storageReference = FirebaseStorage.getInstance().getReference("uploads");
         databaseReference = FirebaseDatabase.getInstance().getReference("uploads");
@@ -117,12 +116,7 @@ public class Add_Item extends AppCompatActivity implements AdapterView.OnItemSel
             }
         });
 
-        textViewShowUploads.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
+//
     }
 
     private void openFileChooser(){
@@ -149,7 +143,6 @@ public class Add_Item extends AppCompatActivity implements AdapterView.OnItemSel
 
 
     public void addItem(View view){
-        EditText img = (EditText) findViewById(R.id.imageName);
         EditText itemName = (EditText) findViewById(R.id.item_Name);
         EditText itemColor = (EditText) findViewById(R.id.item_color);
         EditText holdingItem = (EditText) findViewById(R.id.Item_Item);
@@ -164,8 +157,7 @@ public class Add_Item extends AppCompatActivity implements AdapterView.OnItemSel
         try {
 
             InventoryCreature ic = new InventoryCreature(itemName.getText().toString(), itemColor.getText().toString(),
-                    holdingItem.getText().toString(), Double.parseDouble(ctp2), Double.parseDouble(listPrice2),
-                    Integer.parseInt(stock2), img.getText().toString());
+                    holdingItem.getText().toString(), Double.parseDouble(ctp2), Double.parseDouble(listPrice2), Integer.parseInt(stock2), url );
 
             insertInventoryCreature iic = new insertInventoryCreature();
             iic.insertInventoryCreature(ic, location);
@@ -257,6 +249,7 @@ public class Add_Item extends AppCompatActivity implements AdapterView.OnItemSel
                                     Toast.makeText(Add_Item.this, "Upload Successful!", Toast.LENGTH_LONG).show();
                                     Upload upload = new Upload(editTextFileName.getText().toString().trim(),
                                             uri.toString());
+                                    url = uri.toString();
                                     String uploadId = databaseReference.push().getKey();
                                     databaseReference.child(uploadId).setValue(upload);
 
@@ -280,6 +273,6 @@ public class Add_Item extends AppCompatActivity implements AdapterView.OnItemSel
             Toast.makeText(this, "No file selected", Toast.LENGTH_SHORT).show();
         }
     }
-
-
 }
+
+
