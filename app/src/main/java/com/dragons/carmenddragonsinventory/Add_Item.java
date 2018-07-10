@@ -112,7 +112,7 @@ public class Add_Item extends AppCompatActivity implements AdapterView.OnItemSel
                 if(uploadTask != null && uploadTask.isInProgress()){
                     Toast.makeText(Add_Item.this, "Upload in Progress", Toast.LENGTH_SHORT ).show();
                 }else {
-                   // uploadFile();
+                    uploadFile();
                 }
             }
         });
@@ -242,45 +242,44 @@ public class Add_Item extends AppCompatActivity implements AdapterView.OnItemSel
         MimeTypeMap mime = MimeTypeMap.getSingleton();
         return mime.getExtensionFromMimeType(cr.getType(uri));
     }
-//    private void uploadFile(){
-//        if(imageUri != null){
-//            StorageReference fileReference = storageReference.child(System.currentTimeMillis()
-//                    + "." + getFileExtenstion(imageUri));
-//            uploadTask = fileReference.putFile(imageUri)
-//                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-//                        @Override
-//                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-//                            Handler handler = new Handler();
-//
-//                            handler.postDelayed(new Runnable(){
-//
-//                                @Override
-//                                public void run() {
-//                                    progressBar.setProgress(0);
-//                                }
-//                            }, 500);
-//                            Toast.makeText(Add_Item.this, "Upload Successful!", Toast.LENGTH_LONG).show();
-//                            Upload upload = new Upload(editTextFileName.getText().toString().trim(),
-//                                    taskSnapshot.getDownloadUrl().toString());
-//                            String uploadId = databaseReference.push().getKey();
-//                            databaseReference.child(uploadId).setValue(upload);
-//                        }
-//                    }).addOnFailureListener(new OnFailureListener() {
-//                        @Override
-//                        public void onFailure(@NonNull Exception e) {
-//                            Toast.makeText(Add_Item.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-//                        }
-//                    }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
-//                        @Override
-//                        public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
-//                            double progress = 100.0 * taskSnapshot.getBytesTransferred() / taskSnapshot.getTotalByteCount();
-//                            progressBar.setProgress((int) progress);
-//                        }
-//                    });
-//        }else{
-//            Toast.makeText(this, "No file selected", Toast.LENGTH_SHORT).show();
-//        }
-//    }
+    private void uploadFile(){
+        if(imageUri != null){
+            final StorageReference fileReference = storageReference.child(System.currentTimeMillis()
+                    + "." + getFileExtenstion(imageUri));
+            uploadTask = fileReference.putFile(imageUri)
+                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            fileReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                @Override
+                                public void onSuccess(Uri uri) {
+
+                                    Toast.makeText(Add_Item.this, "Upload Successful!", Toast.LENGTH_LONG).show();
+                                    Upload upload = new Upload(editTextFileName.getText().toString().trim(),
+                                            uri.toString());
+                                    String uploadId = databaseReference.push().getKey();
+                                    databaseReference.child(uploadId).setValue(upload);
+
+                                }
+                            });
+
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(Add_Item.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
+                            double progress = 100.0 * taskSnapshot.getBytesTransferred() / taskSnapshot.getTotalByteCount();
+                            progressBar.setProgress((int) progress);
+                        }
+                    });
+        }else{
+            Toast.makeText(this, "No file selected", Toast.LENGTH_SHORT).show();
+        }
+    }
 
 
 }
