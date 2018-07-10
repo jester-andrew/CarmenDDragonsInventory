@@ -16,6 +16,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.squareup.picasso.Picasso;
 
+import java.util.Objects;
+
 
 public class InventoryDisplayActivity extends AppCompatActivity {
     /**
@@ -104,7 +106,7 @@ public class InventoryDisplayActivity extends AppCompatActivity {
                 holder.getSale().setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        
+
                     }
                 });
 
