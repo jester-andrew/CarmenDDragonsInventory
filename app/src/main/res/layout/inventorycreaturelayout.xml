@@ -8,42 +8,39 @@
 
     <TextView
         android:id="@+id/Color"
-        android:layout_width="80dp"
-        android:layout_height="27dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="50dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintStart_toEndOf="@+id/itemimage"
-        app:layout_constraintTop_toBottomOf="@+id/itemtag"
-        tools:text="Color" />
+        app:layout_constraintTop_toBottomOf="@+id/itemtag" />
 
     <TextView
         android:id="@+id/itemtag"
         android:layout_width="75dp"
-        android:layout_height="26dp"
+        android:layout_height="30dp"
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintStart_toEndOf="@+id/itemimage"
-        app:layout_constraintTop_toBottomOf="@+id/nametag"
-        tools:text="Item Held" />
+        app:layout_constraintTop_toBottomOf="@+id/nametag" />
 
     <TextView
         android:id="@+id/nametag"
-        android:layout_width="83dp"
-        android:layout_height="18dp"
+        android:layout_width="80dp"
+        android:layout_height="30dp"
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:contentDescription="@string/name_display_field"
         app:layout_constraintStart_toEndOf="@+id/itemimage"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="name" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/itemimage"
-        android:layout_width="183dp"
-        android:layout_height="148dp"
+        android:layout_width="180dp"
+        android:layout_height="150dp"
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
@@ -55,7 +52,7 @@
     <TextView
         android:id="@+id/inStock"
         android:layout_width="69dp"
-        android:layout_height="16dp"
+        android:layout_height="30dp"
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
@@ -67,11 +64,11 @@
 
     <TextView
         android:id="@+id/listPrice"
-        android:layout_width="69dp"
-        android:layout_height="27dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="50dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
         android:inputType="none"
         app:layout_constraintStart_toEndOf="@+id/Color"
@@ -80,10 +77,10 @@
     <TextView
         android:id="@+id/CostToProduce"
         android:layout_width="67dp"
-        android:layout_height="21dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
         android:inputType="none"
         app:layout_constraintStart_toEndOf="@+id/itemtag"
@@ -92,13 +89,40 @@
     <Button
         android:id="@+id/sale_button"
         android:layout_width="wrap_content"
-        android:layout_height="33dp"
-        android:layout_marginLeft="56dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="16dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
         android:text="@string/sale_button"
-        app:layout_constraintStart_toEndOf="@+id/itemimage"
-        app:layout_constraintTop_toBottomOf="@+id/Color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button2"
+        app:layout_constraintTop_toBottomOf="@+id/listPrice"
         tools:text="Sale" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:text="+"
+        app:layout_constraintTop_toBottomOf="@+id/Color"
+        tools:layout_editor_absoluteX="251dp" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="-"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button2"
+        app:layout_constraintStart_toEndOf="@+id/itemimage"
+        app:layout_constraintTop_toBottomOf="@+id/Color" />
 
 </android.support.constraint.ConstraintLayout>
