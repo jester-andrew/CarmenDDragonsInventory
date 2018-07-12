@@ -12,10 +12,10 @@ public class POS {
    POS(InventoryCreature aModel, String aLocation, Double aPrice) {
       model = aModel;
 
-      String location = aLocation;
+      this.location = aLocation;
 
-     Double price = aPrice;
-     Integer profit = 0;
+     this.price = aPrice;
+     this.profit = 0.00;
    }
 
 
