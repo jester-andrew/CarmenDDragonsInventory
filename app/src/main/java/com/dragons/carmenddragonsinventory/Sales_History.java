@@ -9,5 +9,6 @@ public class Sales_History extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sales__history);
+        this.setTitle("Sales_History"); // changes header title
     }
 }

@@ -13,6 +13,7 @@ public class Income_Statement extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_income__statement);
+        this.setTitle("Income_Statement");
 
         {   //This code puts the current date into a string
             Calendar calendar = Calendar.getInstance();
