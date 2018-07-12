@@ -50,7 +50,6 @@ public class Sale_Entry_activity extends Activity {
                 location = sale_location.getText().toString();
                 price =  Double.valueOf(sale_price.getText().toString());
                 POS pos = new POS(model, location,price);
-               // Query query = FirebaseDatabase.getInstance().getReference("inventory");
                 InsertPOS p = new InsertPOS(pos);
                 p.insert();
                 finish();
