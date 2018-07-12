@@ -26,6 +26,7 @@
         <activity android:name=".Sales_History" />
         <activity android:name=".Income_Statement" />
         <activity android:name=".Need_More_Inventory"></activity>
+        <activity android:name=".Sale_Entry_activity"></activity>
     </application>
 
 </manifest>

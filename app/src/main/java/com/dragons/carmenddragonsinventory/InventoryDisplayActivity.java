@@ -17,10 +17,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.squareup.picasso.Picasso;
 
-import java.io.Serializable;
-import java.util.Objects;
-
-
 public class InventoryDisplayActivity extends AppCompatActivity {
     /**
      * This class provides the interface to see the inventory
@@ -71,6 +67,8 @@ public class InventoryDisplayActivity extends AppCompatActivity {
                               ic.setCostToProduce(snapshot.child("costToProduce").getValue(Double.class));
                               ic.setStock(snapshot.child("stock").getValue(Integer.class));
                               ic.setImgFilePath(snapshot.child("imgFilePath").getValue().toString());
+                              ic.setDb_key(snapshot.getKey().toString());
+                          Log.i(TAG, "parseSnapshot: "+ snapshot.toString());
                               return ic;
                           }
                   })

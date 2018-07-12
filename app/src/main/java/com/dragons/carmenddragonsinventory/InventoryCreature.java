@@ -20,6 +20,10 @@ public class InventoryCreature implements Serializable{
     private String imgFilePath;
     private static String  TAG = "Inventory Creature Class";
 
+
+
+    private String db_key;
+
     //constructor
 
     InventoryCreature(){
@@ -110,5 +114,13 @@ public class InventoryCreature implements Serializable{
 
     public void setStock(Integer stock) {
         this.stock = stock;
+    }
+
+    public String getDb_key() {
+        return db_key;
+    }
+
+    public void setDb_key(String db_key) {
+        this.db_key = db_key;
     }
 }

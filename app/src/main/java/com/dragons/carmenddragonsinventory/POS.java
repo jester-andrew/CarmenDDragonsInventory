@@ -3,31 +3,49 @@ package com.dragons.carmenddragonsinventory;
 import android.location.Location;
 
 public class POS {
-
+   private InventoryCreature model;
    private String location;//Sales location
-   private Integer price; //sales price
-   private Integer profit; //profit
+   private Double price; //sales price
+   private Double profit; //profit
 
-   //default constructor
-   POS() {
-     String location = "Nowhere";
-     Integer price = 0;
+   //non-default constructorA
+   POS(InventoryCreature aModel, String aLocation, Double aPrice) {
+      model = aModel;
+
+      String location = aLocation;
+
+     Double price = aPrice;
      Integer profit = 0;
    }
 
-   //non-default constructor
-   POS(String location, Integer price, Integer profit) {
-      this.location = location;
-      this.price = price;
-      this.profit = profit;
 
-   }
 
    //getters and setters
    public String getLocation(){ return location;}
-   public Integer getPrice(){ return price;}
-   public Integer getProfit(){ return profit;}
+
    public void setLocation(String location) {this.location = location;}
-   public void setPrice(Integer price) {this.price = price;}
-   public void setLocation(Integer profit) {this.profit = profit;}
+
+   public InventoryCreature getModel() {
+      return model;
+   }
+
+   public void setModel(InventoryCreature model) {
+      this.model = model;
+   }
+
+   public Double getPrice() {
+      return price;
+   }
+
+   public void setPrice(Double price) {
+      this.price = price;
+   }
+
+   public Double getProfit() {
+      return profit;
+   }
+
+   public void setProfit(Double profit) {
+      this.profit = profit;
+   }
 }
