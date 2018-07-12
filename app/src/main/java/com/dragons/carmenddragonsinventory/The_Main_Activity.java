@@ -126,7 +126,6 @@ public void spin(View v){
 
         } else if (id == R.id.Inv1) {
             //Fantasy creature button
-
             Intent displayInventory = new Intent(this, InventoryDisplayActivity.class);
             displayInventory.putExtra("CATEGORY","fantasy");
             startActivity(displayInventory);
@@ -143,12 +142,19 @@ public void spin(View v){
             startActivity(displayInventory);
         }
         else if (id == R.id.nav_share) {
-            //THe 6th button
-
+            //Sales History button
+            Intent Sales_History = new Intent(this, Sales_History.class);
+            startActivity(Sales_History);
         } else if (id == R.id.nav_send) {
-            //The 7th button
-
+            //Income statement buttonn
+            Intent Income_Statement = new Intent(this, Income_Statement.class);
+            startActivity(Income_Statement);
+        } else if (id == R.id.nav_n) {
+            //Needed inv button
+            Intent Need_More_Inventory = new Intent(this, Need_More_Inventory.class);
+            startActivity(Need_More_Inventory);
         }
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
