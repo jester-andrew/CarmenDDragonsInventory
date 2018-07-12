@@ -1,6 +1,7 @@
 package com.dragons.carmenddragonsinventory;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -16,6 +17,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.squareup.picasso.Picasso;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 
@@ -28,6 +30,7 @@ public class InventoryDisplayActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private String category;
     private static String TAG =  " Inventory Display Activity";
+    private Context context;
 
 
     @Override
@@ -36,6 +39,7 @@ public class InventoryDisplayActivity extends AppCompatActivity {
         setContentView(R.layout.activity_inventory_display);
         category = (String) getIntent().getExtras().get("CATEGORY");
         setQuery(category);
+        context = this;
 
         recyclerView = findViewById(R.id.inventoryList);
 
@@ -66,6 +70,7 @@ public class InventoryDisplayActivity extends AppCompatActivity {
                               ic.setListPrice(snapshot.child("listPrice").getValue(Double.class));
                               ic.setCostToProduce(snapshot.child("costToProduce").getValue(Double.class));
                               ic.setStock(snapshot.child("stock").getValue(Integer.class));
+                              ic.setImgFilePath(snapshot.child("imgFilePath").getValue().toString());
                               return ic;
                           }
                   })
@@ -90,7 +95,7 @@ public class InventoryDisplayActivity extends AppCompatActivity {
             * @param model the specific creature to put into the holder at the position
             */
            @Override
-           protected void onBindViewHolder(@NonNull CreatureHolder holder, int position, @NonNull InventoryCreature model) {
+           protected void onBindViewHolder(@NonNull CreatureHolder holder, int position, @NonNull final InventoryCreature model) {
                 holder.getItemHeld().setText(model.getItem());
                 holder.getInStock().setText(String.valueOf(model.getStock()));
                 holder.getCostToProduce().setText(String.valueOf(model.getCostToProduce()));
@@ -106,7 +111,11 @@ public class InventoryDisplayActivity extends AppCompatActivity {
                 holder.getSale().setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-
+                        Log.i(TAG, "onClick: onClick called");
+                        Intent sale = new Intent(InventoryDisplayActivity.this, Sale_Entry_activity.class);
+                        Log.i(TAG, "onClick: intent created");
+                        sale.putExtra("model", model);
+                        startActivity(sale);
                     }
                 });
 

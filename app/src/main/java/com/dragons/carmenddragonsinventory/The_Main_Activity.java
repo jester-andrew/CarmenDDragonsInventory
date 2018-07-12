@@ -31,9 +31,9 @@ public class The_Main_Activity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.the_main_activity);
-        {
+
             Circle = findViewById(R.id.Circle);
-        }
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 

@@ -20,5 +20,9 @@
     <string name="item_image_display_Description">Item Image</string>
     <string name="carmendee_dragons_title">CarmenDee Dragons</string>
     <string name="motto_field">Crafting Perfection</string>
-    <string name="sale_button">Button</string>
+    <string name="sale_button">Sale</string>
+    <string name="sales_location_dialog">Sales Location:</string>
+    <string name="insert_sale_dialog">Insert Sale</string>
+    <string name="sale_price_dialog">Sale Price:</string>
+    <string name="cancel_sales_dialog">Cancel</string>
 </resources>

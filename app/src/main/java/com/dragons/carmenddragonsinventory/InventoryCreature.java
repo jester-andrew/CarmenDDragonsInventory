@@ -1,11 +1,14 @@
 package com.dragons.carmenddragonsinventory;
 
+import android.os.Parcelable;
 import android.util.Log;
+
+import java.io.Serializable;
 
 /**
 * The InventoryCreature class creates a new instance of a creature.
 */
-public class InventoryCreature {
+public class InventoryCreature implements Serializable{
 
     //member variables
     private String name;
