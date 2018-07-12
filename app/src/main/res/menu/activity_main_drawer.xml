@@ -23,7 +23,7 @@
         <item
             android:id="@+id/Inv3"
             android:icon="@drawable/fish"
-            android:title="Sea Creatures" />
+            android:title="Underwater Creatures" />
     </group>
 
     <item android:title="Reports">

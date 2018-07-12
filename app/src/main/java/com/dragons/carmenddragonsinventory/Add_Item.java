@@ -65,6 +65,7 @@ public class Add_Item extends AppCompatActivity implements AdapterView.OnItemSel
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.setTitle("Add_Item"); // changes header title
         setContentView(R.layout.activity_add__item);
 
         //get the spinner from the xml.
