@@ -14,8 +14,8 @@ public class POS {
 
       this.location = aLocation;
 
-     this.price = aPrice;
-     this.profit = 0.00;
+      this.price = aPrice;
+      this.profit = 0.00;
    }
 
 
