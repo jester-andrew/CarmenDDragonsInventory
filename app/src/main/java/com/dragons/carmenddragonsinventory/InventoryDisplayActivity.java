@@ -129,12 +129,15 @@ public class InventoryDisplayActivity extends AppCompatActivity {
     public void setQuery(String category) {
         Log.i(TAG, "setQuery: "+ category + " is the value of the extras");
         if (category.equals("fantasy")){
+            this.setTitle("Fantasy Creatures"); // changes header title
             inventoryQuery = FirebaseDatabase.getInstance().getReference("inventory").child("fantasy-creature").orderByValue();
         }
         else if (category.equals("woodland")){
+            this.setTitle("Woodland Creatures"); // changes header title
             inventoryQuery = FirebaseDatabase.getInstance().getReference("inventory").child("woodland-creature").orderByValue();
         }
         else if ( category.equals("underwater")){
+            this.setTitle("Underwater Creatures"); // changes header title
             inventoryQuery = FirebaseDatabase.getInstance().getReference("inventory").child("sea-creature").orderByValue();
         }
 
