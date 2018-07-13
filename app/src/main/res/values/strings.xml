@@ -25,4 +25,6 @@
     <string name="insert_sale_dialog">Insert Sale</string>
     <string name="sale_price_dialog">Sale Price:</string>
     <string name="cancel_sales_dialog">Cancel</string>
+    <string name="stock_increase">+</string>
+    <string name="stock_decrease">-</string>
 </resources>

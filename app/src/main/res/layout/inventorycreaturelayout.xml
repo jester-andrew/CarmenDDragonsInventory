@@ -96,30 +96,30 @@
         android:layout_marginTop="8dp"
         android:text="@string/sale_button"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button2"
+        app:layout_constraintStart_toEndOf="@+id/stock_increase_button"
         app:layout_constraintTop_toBottomOf="@+id/listPrice"
         tools:text="Sale" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/stock_increase_button"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="+"
-        app:layout_constraintStart_toEndOf="@+id/button3"
+        android:text="@string/stock_increase"
+        app:layout_constraintStart_toEndOf="@+id/stock_decrease"
         app:layout_constraintTop_toBottomOf="@+id/Color" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/stock_decrease"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginBottom="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="-"
+        android:text="@string/stock_decrease"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/itemimage"
         app:layout_constraintTop_toBottomOf="@+id/Color" />
