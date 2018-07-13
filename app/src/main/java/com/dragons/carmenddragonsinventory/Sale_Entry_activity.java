@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 
 public class Sale_Entry_activity extends Activity {
     private InventoryCreature model;
@@ -47,10 +50,13 @@ public class Sale_Entry_activity extends Activity {
                 location = sale_location.getText().toString();
                 price =  Double.valueOf(sale_price.getText().toString());
                 POS pos = new POS(model, location,price);
+                InsertPOS p = new InsertPOS(pos);
+                p.insert();
                 finish();
             }
     });
     }
+
 
 
 }
