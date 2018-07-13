@@ -3,9 +3,11 @@ package com.dragons.carmenddragonsinventory;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -19,6 +21,7 @@ public class Sale_Entry_activity extends Activity {
     private EditText sale_price;
     private Button cancel;
     private Button insert_sale;
+    private String TAG = "Sale_Entry_activity";
 
     public Sale_Entry_activity() {
     }
@@ -51,7 +54,14 @@ public class Sale_Entry_activity extends Activity {
                 price =  Double.valueOf(sale_price.getText().toString());
                 POS pos = new POS(model, location,price);
                 InsertPOS p = new InsertPOS(pos);
-                p.insert();
+                try {
+                    p.insert();
+                    Toast.makeText(Sale_Entry_activity.this, "Sale Recorded", Toast.LENGTH_SHORT ).show();
+                    Log.i(TAG, "The sale was recorded successfully");
+                }catch (Exception e){
+                    Toast.makeText(Sale_Entry_activity.this, "Sale was not recorded!", Toast.LENGTH_SHORT ).show();
+                    Log.e(TAG, "Something Went wrong uploading to the database");
+                }
                 finish();
             }
     });
