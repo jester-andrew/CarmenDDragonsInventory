@@ -8,14 +8,12 @@ public class POS {
    private Double price; //sales price
    private Double profit; //profit
 
-   //non-default constructorA
-   POS(InventoryCreature aModel, String aLocation, Double aPrice) {
+   //non-default constructor
+   public POS(InventoryCreature aModel, String aLocation, Double aPrice) {
       model = aModel;
-
       this.location = aLocation;
-
       this.price = aPrice;
-      this.profit = 0.00;
+      this.profit = calcaProfit();
    }
 
 
@@ -47,5 +45,18 @@ public class POS {
 
    public void setProfit(Double profit) {
       this.profit = profit;
+   }
+
+   /**
+    *  This function calculates The profit produced from a sale
+    * @return a profit
+    */
+   private Double calcaProfit(){
+
+      Double ctp = model.getCostToProduce();
+
+      Double prof = price - ctp;
+
+      return prof;
    }
 }
