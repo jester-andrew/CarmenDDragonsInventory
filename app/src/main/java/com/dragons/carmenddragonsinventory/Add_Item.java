@@ -144,14 +144,14 @@ public class Add_Item extends AppCompatActivity implements AdapterView.OnItemSel
 
 
     public void addItem(View view){
-        EditText itemName = (EditText) findViewById(R.id.item_Name);
-        EditText itemColor = (EditText) findViewById(R.id.item_color);
-        EditText holdingItem = (EditText) findViewById(R.id.Item_Item);
-        EditText ctp = (EditText) findViewById(R.id.cost_to_Produce);
+        EditText itemName = findViewById(R.id.item_Name);
+        EditText itemColor = findViewById(R.id.item_color);
+        EditText holdingItem = findViewById(R.id.Item_Item);
+        EditText ctp = findViewById(R.id.cost_to_Produce);
         String ctp2 = ctp.getText().toString();
-        EditText listPrice = (EditText) findViewById(R.id.list_Price);
+        EditText listPrice = findViewById(R.id.list_Price);
         String listPrice2 = listPrice.getText().toString();
-        EditText stock = (EditText) findViewById(R.id.Stock);
+        EditText stock = findViewById(R.id.Stock);
         String stock2 = stock.getText().toString();
 
 

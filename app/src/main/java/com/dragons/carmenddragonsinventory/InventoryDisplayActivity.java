@@ -68,7 +68,8 @@ public class InventoryDisplayActivity extends AppCompatActivity {
                               ic.setCostToProduce(snapshot.child("costToProduce").getValue(Double.class));
                               ic.setStock(snapshot.child("stock").getValue(Integer.class));
                               ic.setImgFilePath(snapshot.child("imgFilePath").getValue().toString());
-                              ic.setDb_cat(snapshot.getRef());
+                          Log.i(TAG, "parseSnapshot: getRef().toString Value:"+snapshot.getRef().toString());
+                              ic.setDb_loc(snapshot.getRef().toString());
                           Log.i(TAG, "parseSnapshot: "+ snapshot.toString());
                               return ic;
                           }
@@ -121,7 +122,7 @@ public class InventoryDisplayActivity extends AppCompatActivity {
                holder.getDecStock().setOnClickListener(new View.OnClickListener() {
                    @Override
                    public void onClick(View v) {
-                       DatabaseReference current_ref = model.getDb_cat();
+                       DatabaseReference current_ref = FirebaseDatabase.getInstance().getReferenceFromUrl(model.getDb_loc());
                        Integer temp = model.getStock();
                        temp--;
                        current_ref.child("stock").setValue(temp);
@@ -130,7 +131,7 @@ public class InventoryDisplayActivity extends AppCompatActivity {
                holder.getIncStock().setOnClickListener(new View.OnClickListener() {
                    @Override
                    public void onClick(View v) {
-                       DatabaseReference current_ref = model.getDb_cat();
+                       DatabaseReference current_ref = FirebaseDatabase.getInstance().getReferenceFromUrl(model.getDb_loc());
                        Integer temp = model.getStock();
                        temp++;
                        current_ref.child("stock").setValue(temp);
