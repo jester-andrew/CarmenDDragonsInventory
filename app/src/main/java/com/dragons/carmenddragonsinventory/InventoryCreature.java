@@ -3,6 +3,8 @@ package com.dragons.carmenddragonsinventory;
 import android.os.Parcelable;
 import android.util.Log;
 
+import com.google.firebase.database.DatabaseReference;
+
 import java.io.Serializable;
 
 /**
@@ -19,10 +21,7 @@ public class InventoryCreature implements Serializable{
     private Integer stock;
     private String imgFilePath;
     private static String  TAG = "Inventory Creature Class";
-
-
-
-    private String db_key;
+    private DatabaseReference db_cat;
 
     //constructor
 
@@ -116,11 +115,13 @@ public class InventoryCreature implements Serializable{
         this.stock = stock;
     }
 
-    public String getDb_key() {
-        return db_key;
+
+
+    public DatabaseReference getDb_cat() {
+        return db_cat;
     }
 
-    public void setDb_key(String db_key) {
-        this.db_key = db_key;
+    public void setDb_cat(DatabaseReference db_cat) {
+        this.db_cat = db_cat;
     }
 }

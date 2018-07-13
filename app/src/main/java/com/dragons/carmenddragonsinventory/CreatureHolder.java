@@ -45,6 +45,8 @@ class CreatureHolder extends RecyclerView.ViewHolder {
     private final TextView listPrice;
     private final ImageView photo;
     private final Button sale;
+    private final Button decStock;
+    private final Button incStock;
     public CreatureHolder(View itemView) {
         super(itemView);
         nameField = itemView.findViewById(R.id.nametag);
@@ -55,8 +57,17 @@ class CreatureHolder extends RecyclerView.ViewHolder {
         listPrice = itemView.findViewById(R.id.listPrice);
         photo = itemView.findViewById(R.id.itemimage);
         sale = itemView.findViewById(R.id.sale_button);
+        decStock = itemView.findViewById(R.id.stock_decrease);
+        incStock = itemView.findViewById(R.id.stock_increase_button);
     }
 
+    public Button getDecStock() {
+        return decStock;
+    }
+
+    public Button getIncStock() {
+        return incStock;
+    }
 
     public Button getSale() {
         return sale;

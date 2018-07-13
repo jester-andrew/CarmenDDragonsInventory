@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.firebase.ui.database.*;
 import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.squareup.picasso.Picasso;
@@ -67,7 +68,7 @@ public class InventoryDisplayActivity extends AppCompatActivity {
                               ic.setCostToProduce(snapshot.child("costToProduce").getValue(Double.class));
                               ic.setStock(snapshot.child("stock").getValue(Integer.class));
                               ic.setImgFilePath(snapshot.child("imgFilePath").getValue().toString());
-                              ic.setDb_key(snapshot.getKey().toString());
+                              ic.setDb_cat(snapshot.getRef());
                           Log.i(TAG, "parseSnapshot: "+ snapshot.toString());
                               return ic;
                           }
@@ -93,7 +94,7 @@ public class InventoryDisplayActivity extends AppCompatActivity {
             * @param model the specific creature to put into the holder at the position
             */
            @Override
-           protected void onBindViewHolder(@NonNull CreatureHolder holder, int position, @NonNull final InventoryCreature model) {
+           protected void onBindViewHolder(@NonNull final CreatureHolder holder, int position, @NonNull final InventoryCreature model) {
                 holder.getItemHeld().setText(model.getItem());
                 holder.getInStock().setText(String.valueOf(model.getStock()));
                 holder.getCostToProduce().setText(String.valueOf(model.getCostToProduce()));
@@ -114,8 +115,27 @@ public class InventoryDisplayActivity extends AppCompatActivity {
                         Log.i(TAG, "onClick: intent created");
                         sale.putExtra("model", model);
                         startActivity(sale);
+
                     }
                 });
+               holder.getDecStock().setOnClickListener(new View.OnClickListener() {
+                   @Override
+                   public void onClick(View v) {
+                       DatabaseReference current_ref = model.getDb_cat();
+                       Integer temp = model.getStock();
+                       temp--;
+                       current_ref.child("stock").setValue(temp);
+                   }
+               });
+               holder.getIncStock().setOnClickListener(new View.OnClickListener() {
+                   @Override
+                   public void onClick(View v) {
+                       DatabaseReference current_ref = model.getDb_cat();
+                       Integer temp = model.getStock();
+                       temp++;
+                       current_ref.child("stock").setValue(temp);
+                   }
+               });
 
            }
        };
