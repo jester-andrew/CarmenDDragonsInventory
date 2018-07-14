@@ -61,20 +61,19 @@ public class InventoryDisplayActivity extends AppCompatActivity {
                       @NonNull
                       @Override
                       public InventoryCreature parseSnapshot(@NonNull DataSnapshot snapshot) {
+                                InventoryCreature ic = new InventoryCreature();
+                                ic.setColor(snapshot.child("color").getValue().toString());
+                                ic.setName(snapshot.child("name").getValue().toString());
+                                ic.setItem(snapshot.child("item").getValue().toString());
+                                ic.setListPrice( snapshot.child("listPrice").getValue(Double.class));
+                                ic.setCostToProduce( snapshot.child("costToProduce").getValue(Double.class));
+                                ic.setStock(snapshot.child("stock").getValue(Integer.class));
+                                ic.setImgFilePath(String.valueOf(snapshot.child("imgFilePath").getValue()));
+                                Log.i(TAG, "parseSnapshot: getRef().toString Value:" + snapshot.getRef().toString());
+                                ic.setDb_loc(snapshot.getRef().toString());
+                                Log.i(TAG, "parseSnapshot: " + snapshot.toString());
+                                return ic;
 
-
-                              InventoryCreature ic = new InventoryCreature();
-                              ic.setColor(snapshot.child("color").getValue().toString());
-                              ic.setName(snapshot.child("name").getValue().toString());
-                              ic.setItem(snapshot.child("item").getValue().toString());
-                              ic.setListPrice(snapshot.child("listPrice").getValue(Double.class));
-                              ic.setCostToProduce(snapshot.child("costToProduce").getValue(Double.class));
-                              ic.setStock(snapshot.child("stock").getValue(Integer.class));
-                              ic.setImgFilePath(snapshot.child("imgFilePath").getValue().toString());
-                          Log.i(TAG, "parseSnapshot: getRef().toString Value:"+snapshot.getRef().toString());
-                              ic.setDb_loc(snapshot.getRef().toString());
-                          Log.i(TAG, "parseSnapshot: "+ snapshot.toString());
-                              return ic;
                           }
                   })
                   .setLifecycleOwner(this)
