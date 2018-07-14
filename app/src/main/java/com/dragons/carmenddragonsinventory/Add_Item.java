@@ -92,7 +92,6 @@ public class Add_Item extends AppCompatActivity implements AdapterView.OnItemSel
          * Initialize upload variables
          ************************************************************/
         buttonChoseImage = findViewById(R.id.button_chose_image);
-        buttonUpload = findViewById(R.id.button_upload);
         imageView = findViewById(R.id.image_view);
         progressBar = findViewById(R.id.progress_bar);
 
@@ -106,18 +105,6 @@ public class Add_Item extends AppCompatActivity implements AdapterView.OnItemSel
                 openFileChooser();
             }
         });
-        buttonUpload.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(uploadTask != null && uploadTask.isInProgress()){
-                    Toast.makeText(Add_Item.this, "Upload in Progress", Toast.LENGTH_SHORT ).show();
-                }else {
-                    uploadFile();
-                }
-            }
-        });
-
-//
     }
 
     private void openFileChooser(){
