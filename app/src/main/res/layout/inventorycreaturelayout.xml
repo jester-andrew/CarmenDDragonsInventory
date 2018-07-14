@@ -14,16 +14,15 @@
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/listPrice"
-        app:layout_constraintStart_toEndOf="@+id/itemimage"
-        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+        app:layout_constraintStart_toEndOf="@+id/itemimage" />
 
     <TextView
         android:id="@+id/textView13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Color"
-        app:layout_constraintBottom_toTopOf="@+id/itemtag"
-        app:layout_constraintStart_toStartOf="@+id/itemtag"
+        app:layout_constraintBottom_toTopOf="@+id/Color"
+        app:layout_constraintStart_toStartOf="@+id/Color"
         app:layout_constraintVertical_chainStyle="spread_inside" />
 
     <TextView
@@ -145,11 +144,9 @@
         android:id="@+id/textView14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:text="Item/Variant"
-        app:layout_constraintBottom_toTopOf="@+id/Color"
-        app:layout_constraintStart_toStartOf="@+id/Color"
-        app:layout_constraintTop_toBottomOf="@+id/itemtag" />
+        app:layout_constraintBottom_toTopOf="@+id/itemtag"
+        app:layout_constraintStart_toStartOf="@+id/itemtag" />
 
     <TextView
         android:id="@+id/textView15"
