@@ -2,6 +2,7 @@ package com.dragons.carmenddragonsinventory;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -28,6 +29,7 @@ public class InventoryDisplayActivity extends AppCompatActivity {
     private String category;
     private static String TAG =  " Inventory Display Activity";
     private Context context;
+    private Integer image_width;
 
 
     @Override
@@ -35,6 +37,7 @@ public class InventoryDisplayActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inventory_display);
         category = (String) getIntent().getExtras().get("CATEGORY");
+        image_width = (Resources.getSystem().getDisplayMetrics().widthPixels) / 3 ;
         setQuery(category);
         context = this;
 
@@ -105,7 +108,7 @@ public class InventoryDisplayActivity extends AppCompatActivity {
                 Log.i(TAG, "onBindViewHolder: "+ model.getImgFilePath());
                 Picasso.get()
                         .load(model.getImgFilePath())
-                        .fit()
+                        .resize(image_width,300)
                         .centerCrop()
                         .into(holder.getPhoto());
                 holder.getSale().setOnClickListener(new View.OnClickListener() {

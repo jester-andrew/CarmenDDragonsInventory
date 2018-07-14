@@ -8,91 +8,106 @@
 
     <TextView
         android:id="@+id/Color"
-        android:layout_width="50dp"
+        android:layout_width="80dp"
         android:layout_height="30dp"
-        android:layout_marginLeft="28dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
         app:layout_constraintStart_toEndOf="@+id/itemimage"
-        app:layout_constraintTop_toBottomOf="@+id/itemtag" />
+        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Color"
+        app:layout_constraintStart_toStartOf="@+id/itemtag"
+        app:layout_constraintTop_toBottomOf="@+id/nametag" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Name"
+        app:layout_constraintStart_toStartOf="@+id/nametag"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/itemtag"
-        android:layout_width="75dp"
+        android:layout_width="80dp"
         android:layout_height="30dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
         app:layout_constraintStart_toEndOf="@+id/itemimage"
-        app:layout_constraintTop_toBottomOf="@+id/nametag" />
+        app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
     <TextView
         android:id="@+id/nametag"
         android:layout_width="80dp"
         android:layout_height="30dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
         android:contentDescription="@string/name_display_field"
         app:layout_constraintStart_toEndOf="@+id/itemimage"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
     <ImageView
         android:id="@+id/itemimage"
-        android:layout_width="180dp"
-        android:layout_height="150dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:adjustViewBounds="true"
         android:contentDescription="@string/item_image_display_Description"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:color/holo_blue_light" />
 
     <TextView
         android:id="@+id/inStock"
-        android:layout_width="69dp"
+        android:layout_width="80dp"
         android:layout_height="30dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
         android:contentDescription="@string/number_in_stock_display_field"
         android:ems="10"
         android:inputType="none"
         app:layout_constraintStart_toEndOf="@+id/nametag"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
     <TextView
         android:id="@+id/listPrice"
-        android:layout_width="50dp"
+        android:layout_width="80dp"
         android:layout_height="30dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
         android:ems="10"
         android:inputType="none"
         app:layout_constraintStart_toEndOf="@+id/Color"
-        app:layout_constraintTop_toBottomOf="@+id/CostToProduce" />
+        app:layout_constraintTop_toBottomOf="@+id/textView17" />
 
     <TextView
         android:id="@+id/CostToProduce"
-        android:layout_width="67dp"
+        android:layout_width="80dp"
         android:layout_height="30dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
         android:ems="10"
         android:inputType="none"
         app:layout_constraintStart_toEndOf="@+id/itemtag"
-        app:layout_constraintTop_toBottomOf="@+id/inStock" />
+        app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
     <Button
         android:id="@+id/sale_button"
-        android:layout_width="wrap_content"
+        android:layout_width="73dp"
         android:layout_height="40dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginStart="4dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="@string/sale_button"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -104,24 +119,60 @@
         android:id="@+id/stock_increase_button"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
         android:text="@string/stock_increase"
-        app:layout_constraintStart_toEndOf="@+id/stock_decrease"
-        app:layout_constraintTop_toBottomOf="@+id/Color" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/stock_decrease" />
 
     <Button
         android:id="@+id/stock_decrease"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginStart="4dp"
         android:layout_marginTop="8dp"
         android:text="@string/stock_decrease"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/itemimage"
         app:layout_constraintTop_toBottomOf="@+id/Color" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Item/Variant"
+        app:layout_constraintStart_toStartOf="@+id/Color"
+        app:layout_constraintTop_toBottomOf="@+id/itemtag" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Stock"
+        app:layout_constraintBottom_toTopOf="@+id/inStock"
+        app:layout_constraintStart_toStartOf="@+id/inStock"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Pro. Cost"
+        app:layout_constraintStart_toStartOf="@+id/CostToProduce"
+        app:layout_constraintTop_toBottomOf="@+id/inStock" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="List Price"
+        app:layout_constraintBottom_toTopOf="@+id/listPrice"
+        app:layout_constraintStart_toStartOf="@+id/listPrice"
+        app:layout_constraintTop_toBottomOf="@+id/CostToProduce" />
 
 </android.support.constraint.ConstraintLayout>
