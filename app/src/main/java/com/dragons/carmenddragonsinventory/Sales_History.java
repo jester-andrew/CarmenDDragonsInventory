@@ -55,12 +55,13 @@ public class Sales_History extends AppCompatActivity {
                             @Override
                             public POS parseSnapshot(@NonNull DataSnapshot snapshot) {
 
-                                POS ic = new POS();
-                                ic.setLocation(snapshot.child("location").getValue().toString());
-                                ic.setPrice(snapshot.child("Price").getValue(Double.class));
-                                ic.setProfit(snapshot.child("Profit").getValue(Double.class));
-                                ic.setDb_loc(snapshot.getRef().toString());
-                                return ic;
+                                POS pos = new POS();
+                                pos.setLocation(snapshot.child("location").getValue().toString());
+                                pos.setPrice(snapshot.child("Price").getValue(Double.class));
+                                pos.setProfit(snapshot.child("Profit").getValue(Double.class));
+                                pos.setDb_loc(snapshot.getRef().toString());
+
+                                return pos;
                             }
                         })
                         .setLifecycleOwner(this)
@@ -72,11 +73,12 @@ public class Sales_History extends AppCompatActivity {
             @Override
             public POS_Holder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
                 return new POS_Holder(LayoutInflater.from(parent.getContext())
-                        .inflate(R.layout.inventorycreaturelayout,parent,false));
+                        .inflate(R.layout.pos_holder,parent,false));
             }
 
             @Override
             protected void onBindViewHolder(@NonNull final POS_Holder holder, int position, @NonNull final POS model) {
+
                 holder.getLocation().setText(String.valueOf(model.getLocation()));
                 holder.getPrice().setText(String.valueOf(model.getPrice()));
                 holder.getProfit().setText(String.valueOf(model.getProfit()));
