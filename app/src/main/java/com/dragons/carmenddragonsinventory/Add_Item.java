@@ -168,17 +168,7 @@ public class Add_Item extends AppCompatActivity implements AdapterView.OnItemSel
             toast.show();
         }
 
-        try{
-            _image.setText("");
-            itemname.setText("");
-            item_Color.setText("");
-            holding_Item.setText("");
-            _ctp.setText("");
-            listingprice.setText("");
-            _stock.setText("");
-        } catch(Exception e){
-            Log.e(TAG, "failed to delete all fields");
-        }
+    finish();
     }
 
     @Override
@@ -235,7 +225,7 @@ public class Add_Item extends AppCompatActivity implements AdapterView.OnItemSel
                                 @Override
                                 public void onSuccess(Uri uri) {
 
-                                    Toast.makeText(Add_Item.this, "Upload Successful!", Toast.LENGTH_LONG).show();
+                                    Toast.makeText(Add_Item.this, "Upload Successful!", Toast.LENGTH_SHORT).show();
                                     url = uri.toString();
 
                                 }

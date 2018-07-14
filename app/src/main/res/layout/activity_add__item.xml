@@ -155,7 +155,7 @@
             android:layout_marginRight="60dp"
             android:layout_marginStart="60dp"
             android:layout_marginTop="20dp"
-            android:text="Chose Image"
+            android:text="Choose Image"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
