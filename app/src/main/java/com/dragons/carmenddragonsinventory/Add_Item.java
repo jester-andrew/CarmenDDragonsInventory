@@ -196,7 +196,7 @@ public class Add_Item extends AppCompatActivity implements AdapterView.OnItemSel
                 break;
         }
 
-        
+
         Context context = getApplicationContext();
         CharSequence text = "Location: " + location;
         int duration = Toast.LENGTH_SHORT;
