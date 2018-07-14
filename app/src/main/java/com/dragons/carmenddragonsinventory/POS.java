@@ -10,6 +10,7 @@ public class POS implements Serializable {
    private Double price; //sales price
    private Double profit; //profit
    private String db_loc;
+   private String name;
 
    POS(){
 
@@ -61,6 +62,14 @@ public class POS implements Serializable {
     public void setDb_loc(String db_loc) {
         this.db_loc = db_loc;
     }
+
+   public String getName() {
+      return name;
+   }
+
+   public void setName(String name) {
+      this.name = name;
+   }
 
    /**
     *  This function calculates The profit produced from a sale

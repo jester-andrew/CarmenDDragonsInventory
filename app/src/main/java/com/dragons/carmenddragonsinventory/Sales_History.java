@@ -56,10 +56,11 @@ public class Sales_History extends AppCompatActivity {
                             public POS parseSnapshot(@NonNull DataSnapshot snapshot) {
 
                                 POS pos = new POS();
-                                pos.setLocation(snapshot.child("location").getValue().toString());
-                                pos.setPrice(snapshot.child("Price").getValue(Double.class));
-                                pos.setProfit(snapshot.child("Profit").getValue(Double.class));
+                                pos.setLocation(String.valueOf(snapshot.child("location").getValue()));
+                                pos.setPrice(snapshot.child("price").getValue(Double.class));
+                                pos.setProfit(snapshot.child("profit").getValue(Double.class));
                                 pos.setDb_loc(snapshot.getRef().toString());
+                                pos.setName(String.valueOf(snapshot.child("model").child("name").getValue()));
 
                                 return pos;
                             }
@@ -78,8 +79,8 @@ public class Sales_History extends AppCompatActivity {
 
             @Override
             protected void onBindViewHolder(@NonNull final POS_Holder holder, int position, @NonNull final POS model) {
-
-                holder.getLocation().setText(String.valueOf(model.getLocation()));
+                holder.getName().setText(model.getName());
+                holder.getLocation().setText(model.getLocation());
                 holder.getPrice().setText(String.valueOf(model.getPrice()));
                 holder.getProfit().setText(String.valueOf(model.getProfit()));
             }
@@ -88,7 +89,7 @@ public class Sales_History extends AppCompatActivity {
 
     public void setQuery() {
             this.setTitle("Sales_History"); // changes header title
-            inventoryQuery = FirebaseDatabase.getInstance().getReference("inventory").child("sea-creature").orderByValue();
+            inventoryQuery = FirebaseDatabase.getInstance().getReference("sales-history").orderByValue();
     }
 
     }
