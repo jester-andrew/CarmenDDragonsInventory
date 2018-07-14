@@ -1,23 +1,16 @@
 package com.dragons.carmenddragonsinventory;
 
-import android.content.Context;
-import android.content.Intent;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 import com.firebase.ui.database.*;
 import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
-import com.squareup.picasso.Picasso;
 
 public class Sales_History extends AppCompatActivity {
     /**
@@ -72,7 +65,7 @@ public class Sales_History extends AppCompatActivity {
             @Override
             public CreatureHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
                 return new CreatureHolder(LayoutInflater.from(parent.getContext())
-                        .inflate(R.layout.inventorycreaturelayout,parent,false));
+                        .inflate(R.layout.inventory_creature_layout,parent,false));
             }
 
             @Override

@@ -87,7 +87,7 @@ public class InventoryDisplayActivity extends AppCompatActivity {
            @Override
            public CreatureHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
                return new CreatureHolder(LayoutInflater.from(parent.getContext())
-                       .inflate(R.layout.inventorycreaturelayout,parent,false));
+                       .inflate(R.layout.inventory_creature_layout,parent,false));
            }
 
            /**
