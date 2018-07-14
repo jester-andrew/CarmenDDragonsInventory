@@ -115,7 +115,6 @@ public class InventoryCreature implements Serializable{
     }
 
 
-
     public String getDb_loc() {
         return db_loc;
     }
