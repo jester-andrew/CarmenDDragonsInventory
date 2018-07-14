@@ -8,6 +8,10 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+/**
+ * Creature Holder saves the View IDs of the Inventory_Creature_Layout for the
+ * RecyclerView adapter. Each private variable is a View ID.
+ */
 class CreatureHolder extends RecyclerView.ViewHolder {
     public TextView getNameField() {
         return nameField;
