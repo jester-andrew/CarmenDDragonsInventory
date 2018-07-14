@@ -136,12 +136,12 @@ public class Add_Item extends AppCompatActivity implements AdapterView.OnItemSel
             imageUri = data.getData();
 
             imageView.setImageURI(imageUri);
+
+            uploadFile();
         }
 
 
     }
-
-
 
     public void addItem(View view){
         EditText itemName = findViewById(R.id.item_Name);
