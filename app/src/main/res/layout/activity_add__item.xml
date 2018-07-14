@@ -150,14 +150,14 @@
             android:id="@+id/button_chose_image"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
+            android:layout_marginEnd="60dp"
             android:layout_marginLeft="60dp"
-            android:layout_marginRight="8dp"
+            android:layout_marginRight="60dp"
             android:layout_marginStart="60dp"
             android:layout_marginTop="20dp"
             android:text="Chose Image"
-            app:layout_constraintEnd_toStartOf="@+id/button_upload"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/Stock" />
 
@@ -181,19 +181,6 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/button_chose_image" />
-
-        <Button
-            android:id="@+id/button_upload"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginEnd="52dp"
-            android:layout_marginRight="52dp"
-            android:layout_marginTop="20dp"
-            android:text="Upload Image"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Stock" />
 
     </android.support.constraint.ConstraintLayout>
 </ScrollView>
