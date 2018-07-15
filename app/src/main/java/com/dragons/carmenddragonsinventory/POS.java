@@ -81,6 +81,6 @@ public class POS implements Serializable {
 
       Double prof = price - ctp;
 
-      return prof;
+      return Math.round(prof * 100) / 100.0;
    }
 }
