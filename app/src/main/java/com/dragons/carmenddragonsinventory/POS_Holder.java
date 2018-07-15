@@ -10,8 +10,8 @@ public class POS_Holder extends RecyclerView.ViewHolder {
         super(itemView);
         name = itemView.findViewById(R.id.Pos_Name);
         location = itemView.findViewById(R.id.POS_Location);
-        price = itemView.findViewById(R.id.Pos_Sold);
-        profit = itemView.findViewById((R.id.POS_Profit));
+        price = itemView.findViewById(R.id.POS_Profit);
+        profit = itemView.findViewById((R.id.POS_Sold));
 
     }
     private TextView name;
