@@ -4,8 +4,14 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
-
+/**
+ * This class creates a holder for the information that will be displayed in the sales history view
+ */
 public class POS_Holder extends RecyclerView.ViewHolder {
+    /**
+     * non-default constructor takes a view as a parameter and sets the variables to the iuems in the view
+     * @param itemView
+     */
     public POS_Holder(View itemView) {
         super(itemView);
         name = itemView.findViewById(R.id.Pos_Name);
@@ -19,6 +25,7 @@ public class POS_Holder extends RecyclerView.ViewHolder {
     private TextView price;
     private TextView profit;
 
+    //getters and setters
     public TextView getName() {
         return name;
     }
