@@ -13,6 +13,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 
+/**
+ * this Activity is used to create a POS object and entry its sales data
+ */
 public class Sale_Entry_activity extends Activity {
     private InventoryCreature model;
     private String location;
@@ -23,6 +26,9 @@ public class Sale_Entry_activity extends Activity {
     private Button insert_sale;
     private String TAG = "Sale_Entry_activity";
 
+    /**
+     * default constructor
+     */
     public Sale_Entry_activity() {
     }
 
@@ -40,6 +46,10 @@ public class Sale_Entry_activity extends Activity {
         setListeners();
         }
 
+    /**
+     * this is called by onCreate to set the onclick listeners for the buttons of this activity.
+     * with the invidiual listeners, it either quits the activity or uploads the information entered.
+     */
     private void setListeners() {
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
