@@ -34,7 +34,7 @@ public class POS implements Serializable {
       this.profit = calcaProfit();
 
    }
-   
+
    //getters and setters
    public String getLocation(){ return location;}
 
