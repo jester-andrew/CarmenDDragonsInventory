@@ -4,6 +4,9 @@ import android.location.Location;
 
 import java.io.Serializable;
 
+/**
+ * This class hold the methods and variables for a Point of Sale
+ */
 public class POS implements Serializable {
    private InventoryCreature model;
    private String location;//Sales location
@@ -12,10 +15,18 @@ public class POS implements Serializable {
    private String db_loc;
    private String name;
 
-   POS(){
+   //default constructor
+   public POS(){
 
    }
-   //non-default constructor
+
+   /**
+    * non-default constructor takes an inventory creature, a location of the point of sale and the
+    * sales price
+    * @param aModel InventoryCreature
+    * @param aLocation Location of sale
+    * @param aPrice Price the item sold for
+    */
    public POS(InventoryCreature aModel, String aLocation, Double aPrice) {
       model = aModel;
       this.location = aLocation;
@@ -23,8 +34,6 @@ public class POS implements Serializable {
       this.profit = calcaProfit();
 
    }
-
-
 
    //getters and setters
    public String getLocation(){ return location;}
@@ -81,6 +90,6 @@ public class POS implements Serializable {
 
       Double prof = price - ctp;
 
-      return prof;
+      return Math.round(prof * 100) / 100.0;
    }
 }

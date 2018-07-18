@@ -34,12 +34,16 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
 
+/**
+ * This class contains all the variables and methods necessary to add an item into the inventory
+ */
 public class Add_Item extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
 
     private String location;
     private static String TAG = "Add_Item Activity";
 
+    //inventory variables
     TextView _image;
     TextView itemname;
     TextView item_Color;
@@ -52,9 +56,6 @@ public class Add_Item extends AppCompatActivity implements AdapterView.OnItemSel
     //upload image variables
     private static final int PICK_IMAGE_REQUEST = 1;
     private Button buttonChoseImage;
-    private Button buttonUpload;
-    private TextView textViewShowUploads;
-    private EditText editTextFileName;
     private ImageView imageView;
     private ProgressBar progressBar;
     private Uri imageUri;
@@ -68,19 +69,16 @@ public class Add_Item extends AppCompatActivity implements AdapterView.OnItemSel
         this.setTitle("Add_Item"); // changes header title
         setContentView(R.layout.activity_add__item);
 
-        //get the spinner from the xml.
-        Spinner dropdown = findViewById(R.id.spinner1);
-        //create a list of items for the spinner.
-        String[] items = new String[]{"Fantasy-Creature", "Sea-Creature", "Woodland-Creature"};
-        //create an adapter to describe how the items are displayed, adapters are used in several places in android.
-        //There are multiple variations of this, but this is the basic variant.
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
-        //set the spinners adapter to the previously created one.
-        dropdown.setAdapter(adapter);
 
+        Spinner dropdown = findViewById(R.id.spinner1);
+
+        //list of items for dropdown
+        String[] items = new String[]{"Fantasy-Creature", "Sea-Creature", "Woodland-Creature"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
+        dropdown.setAdapter(adapter);
         dropdown.setOnItemSelectedListener(this);
 
-
+        //variables grabbing item values in view
         itemname = findViewById(R.id.item_Name);
         item_Color = findViewById(R.id.item_color);
         holding_Item =findViewById(R.id.Item_Item);
@@ -88,17 +86,16 @@ public class Add_Item extends AppCompatActivity implements AdapterView.OnItemSel
         listingprice = findViewById(R.id.list_Price);
         _stock = findViewById(R.id.inStock);
 
-        /************************************************************
-         * Initialize upload variables
-         ************************************************************/
+        //variables grabbing image values in view
         buttonChoseImage = findViewById(R.id.button_chose_image);
         imageView = findViewById(R.id.image_view);
         progressBar = findViewById(R.id.progress_bar);
 
+        //firebase references
         storageReference = FirebaseStorage.getInstance().getReference("uploads");
         databaseReference = FirebaseDatabase.getInstance().getReference("uploads");
 
-
+        //event listener that opens the image choosing view
         buttonChoseImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -107,13 +104,15 @@ public class Add_Item extends AppCompatActivity implements AdapterView.OnItemSel
         });
     }
 
+    //This method opens the file chooser and anly allows images to be found
     private void openFileChooser(){
         Intent intent = new Intent();
-        intent.setType("image/*");
+        intent.setType("image/*"); //only images
         intent.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(intent, PICK_IMAGE_REQUEST);
     }
 
+    //after a file is chosen the file is uploaded to firebase store
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -130,6 +129,11 @@ public class Add_Item extends AppCompatActivity implements AdapterView.OnItemSel
 
     }
 
+    /**
+     * This method adds the item to the inventory by creating an inventory creature and passing it
+     * to the insertInventory Creature class and using its insert method
+     * @param view
+     */
     public void addItem(View view){
         EditText itemName = findViewById(R.id.item_Name);
         EditText itemColor = findViewById(R.id.item_color);
@@ -171,6 +175,7 @@ public class Add_Item extends AppCompatActivity implements AdapterView.OnItemSel
     finish();
     }
 
+    //changes the item location based on what was selected in the dropdown
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
@@ -196,6 +201,7 @@ public class Add_Item extends AppCompatActivity implements AdapterView.OnItemSel
 
     }
 
+    //If no image is selected this function posts a toast to the screen
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
@@ -208,11 +214,14 @@ public class Add_Item extends AppCompatActivity implements AdapterView.OnItemSel
 
     }
 
+    //this method grabs the file extenstion
     private String getFileExtenstion(Uri uri){
         ContentResolver cr = getContentResolver();
         MimeTypeMap mime = MimeTypeMap.getSingleton();
         return mime.getExtensionFromMimeType(cr.getType(uri));
     }
+
+    //this method uploads the image to fire store
     private void uploadFile(){
         if(imageUri != null){
             final StorageReference fileReference = storageReference.child(System.currentTimeMillis()
