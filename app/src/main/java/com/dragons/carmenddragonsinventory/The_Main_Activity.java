@@ -20,6 +20,9 @@ import java.util.Random;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 
+/**
+ * This activity contains the home screen functionality.
+ */
 public class The_Main_Activity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private ImageView Circle;
